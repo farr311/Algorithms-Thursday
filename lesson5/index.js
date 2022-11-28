@@ -3,10 +3,14 @@
 	 решение 2 - улучшить решение 1 до O(log n) */
 
 
-console.log(powerRec(2, 1));
-console.log(powerRec(2, 4));
-console.log(powerRec(2, 6));
-console.log(powerRec(2, 10));
+console.log(powerRecImproved(2, 1));
+console.log(powerRecImproved(2, 3));
+console.log(powerRecImproved(2, 6));
+console.log(powerRecImproved(2, 10));
+console.log(powerRecImproved(10, 1));
+console.log(powerRecImproved(10, 2));
+console.log(powerRecImproved(10, 5));
+console.log(powerRecImproved(10, 10));
 
 
 function power(x, n) {
@@ -36,11 +40,15 @@ function powerRecImproved(x, n) {
         return 1;
     }
 
-    // 1. Получить значение, равное x в степени n / 2
-    // 2. Округлить полученное значение вниз до целого
-    // 3. Выполнить проверку n на четность
-    // 3.1. Если n четное, возвести полученное число в квадрат
-    // 3.2. В противном случае возвести в квадрат и умножить на x
+    let half = powerRecImproved(x, Math.floor(n / 2));
+
+    if (n % 2 == 0) {
+        return half * half;
+    } else {
+        return half * half * x;
+    }
 }
+
+
 
 
