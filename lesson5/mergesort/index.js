@@ -4,7 +4,86 @@ arr = [2, 6, 87, 1, 0, 52, 42, 1, 5, 7];
 
 mergeSort(arr, 0, arr.length - 1);
 
-console.log(arr);
+//console.log(arr);
+
+
+
+//console.log(reverse(10135000))
+console.log(reverseRec(10135, 5))
+console.log(reverseRec2(10135, 0))
+console.log(reverse3(10135, 0))
+console.log(reverse4(10135))
+console.log(reverse5(10135))
+
+function reverse(x) {
+    let y = 0;
+    let d = 0;
+
+    while (x > 0) {
+        d = x % 10;
+        y = y * 10 + d;
+        x = Math.floor(x / 10);
+    }
+
+    return y;
+}
+
+function reverseRec(x, n) {
+    if (x < 10) {
+        return x;
+    }
+
+    return (x % 10) * (10 ** (n - 1)) + reverseRec(Math.floor(x / 10), n - 1);
+}
+
+function reverseRec2(a, i) {
+    if(a == 0) {
+        return i;
+    } 
+
+    i = i * 10 + a % 10;
+    return reverseRec2(Math.floor(a / 10), i);
+}
+
+function reverse3(x, r) {
+    if (x > 0) {
+        return reverse3(Math.floor(x / 10), r * 10 + x % 10);
+    }
+
+    return r;
+}
+
+function reverse4(x) {
+    if (x < 10) {
+        return x;
+    }
+
+    return "" + x % 10 + reverse4(Math.floor(x / 10));
+}
+
+/* function reverse5(x) {
+    let r = 0;
+    if (x > 0) {
+        let a = 10 ** (Math.floor(Math.log10(x)));
+        r = reverse5(x % a) * 10 + Math.floor(x / a);
+
+        if (... === 0) {
+            return ... * 10;
+        }
+    }
+
+    return r;
+} */
+
+// FIB: 1, 1 -> f(x) = f(x - 1) + f(x - 2)
+// 1, 1, 2, 3, 5, 8, 13, 21, 34 ...
+
+// 1. Написать рекурсивный алгоритм для вывода первых n чисел фибоначчи
+// 2. Написать итеративный алгоритм для вывода первых n чисел фибоначчи, используя массив
+// 3. Модифицировать второе задание так, чтобы массив был не нужен
+  
+
+
 
 function mergeSort(arr, left, right) {
     if (left < right) {
