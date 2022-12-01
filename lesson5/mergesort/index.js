@@ -9,11 +9,11 @@ mergeSort(arr, 0, arr.length - 1);
 
 
 //console.log(reverse(10135000))
-console.log(reverseRec(10135, 5))
+/* console.log(reverseRec(10135, 5))
 console.log(reverseRec2(10135, 0))
 console.log(reverse3(10135, 0))
 console.log(reverse4(10135))
-console.log(reverse5(10135))
+console.log(reverse5(10135)) */
 
 function reverse(x) {
     let y = 0;
@@ -81,8 +81,60 @@ function reverse4(x) {
 // 1. Написать рекурсивный алгоритм для вывода первых n чисел фибоначчи
 // 2. Написать итеративный алгоритм для вывода первых n чисел фибоначчи, используя массив
 // 3. Модифицировать второе задание так, чтобы массив был не нужен
-  
 
+//console.log(fibRec(5));
+
+//printFibRec(5);
+
+//fibArray(5)
+fib(5)
+
+function printFibRec(x) {
+    for (let i = 1; i <= x; i++) {
+        console.log(fibRec(i));
+    }
+}
+
+function fibRec(n) {
+    if (n <= 2) {
+        return 1;
+    }
+
+    let a = fibRec(n - 1) + fibRec(n - 2);
+
+    return a;
+}
+
+function fibArray(n) {
+    arr = [];
+
+    for (let i = 0; i < n; i++) {
+        if (i === 1 || i === 0) {
+            arr[i] = 1;
+        } else {
+            arr[i] = arr[i - 1] + arr[i - 2];
+        }
+    }
+
+    console.log(arr);
+}
+
+function fib(n) {
+    let a = 1;
+    let b = 1;
+
+    for (let i = 0; i < n; i++) {
+        if (i <= 1) {
+            console.log(b);
+            continue;
+        }
+
+        let tmp = b;
+        b = a + b;
+        a = tmp;
+        console.log(b)
+    }
+}
 
 
 function mergeSort(arr, left, right) {
