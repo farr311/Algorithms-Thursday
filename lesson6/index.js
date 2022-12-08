@@ -1,38 +1,27 @@
 
+//Как сделать бесконечный цикл?
+
+let start = ... // дописать
+for (let i = start; i <= start + 1; i++) /* Модифицировать условие нельзя! */ {
+    // для решения добавить одну строку здесь
+}
+
+
+
+
+
+
 arr = [2, 6, 87, 1, 0, 52, 42, 1, 5, 7];
 
 let count = 0;
 
-/* 
-2. Произвести замер количества итераций quick sort vs bubble sort 
-(так же можно замерить merge sort, если есть такое желание).
- Для этого нужно создать счетчик и увеличвать его значение на 1 в каждой итерации. 
-(подсказка: для алгоритмов mergeSort и quickSort счетчик нужно увеличивать в функциях, которые осуществляют сортировку, 
-а не в функциях, которые выполняют деление массива)
-
-3. Используя функцию Date.now(), посчитать производительность в миллисекундах для алгоритмов bubble sort и quick sort 
-(опционально можно сделать проверку для merge sort). Для этого вам нужно будет написать код по следующему формату:
-
-
-let start = Date.now()
-// Вызов алгоритма
-let finish = Date.now()
-console.log(finish - start)
-*/
-
-
-/* let start = ... // Время в мс
-quickSort(arr, 0, arr.length - 1);
-
-let end = ... // Время в мс
-console.log(end - start) */
 
 
 testQuickSort([1000, 10000, 100000]);
 console.log("==================")
 testMergeSort([1000, 10000, 100000]);
 console.log("==================")
-//testBubble([1000, 10000, 100000]);
+testBubble([1000, 10000, 100000]);
 
 
 
@@ -50,24 +39,30 @@ console.log("==================")
 function testBubble(arr) {
     for (let i = 0; i < arr.length; i++) {
         count = 0;
+        let start = Date.now();
         bubbleSort(generateArray(arr[i]))
-        console.log(`Bubble Sort, ${arr[i]}: ${count}`);
+        let time = Date.now() - start;
+        console.log(`Bubble Sort, ${arr[i]}: ${count} | time: ${time}`);
     }
 }
 
 function testQuickSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         count = 0;
+        let start = Date.now();
         quickSort(generateArray(arr[i]), 0, arr[i] - 1)
-        console.log(`Quick Sort, ${arr[i]}: ${count}`);
+        let time = Date.now() - start;
+        console.log(`Quick Sort, ${arr[i]}: ${count} | time: ${time}`);
     }
 }
 
 function testMergeSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         count = 0;
+        let start = Date.now();
         mergeSort(generateArray(arr[i]), 0, arr[i] - 1)
-        console.log(`Merge Sort, ${arr[i]}: ${count}`);
+        let time = Date.now() - start;
+        console.log(`Merge Sort, ${arr[i]}: ${count} | time: ${time}`);
     }
 }
 
